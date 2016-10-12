@@ -234,6 +234,10 @@ export default class IntlTelInputApp extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (this.props.defaultCountry !== nextProps.defaultCountry) {
+      this.setFlag(nextProps.defaultCountry, false);
+    }
+    
     if (prevState.value !== this.state.value) {
       this.notifyPhoneNumberChange(this.state.value);
     }
